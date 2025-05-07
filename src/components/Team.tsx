@@ -4,14 +4,14 @@ const Team = () => {
     {
       name: "Adolfo Villanueva",
       position: "CEO & Fundador",
-      bio: "Ingeniero de Software con más de 10 años de experiencia en desarrollo de soluciones empresariales.",
+      bio: "Ingeniero de Software con más de 15 años de experiencia en desarrollo de soluciones empresariales.",
       avatar: "👨‍💼"
     },
     {
       name: "Eber Torres",
       position: "CTO",
       bio: "Especialista en arquitectura de software y desarrollo de aplicaciones web de alta escalabilidad.",
-      avatar: "👩‍💼"
+      avatar: "👨"
     },
     {
       name: "Jhoam Jurado",
