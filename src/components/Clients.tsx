@@ -1,19 +1,28 @@
-
 const Clients = () => {
   const clients = [
     {
       name: "MANU BARRA CEVICHERA",
-      logo: "🍽️",
+      logo: "/images/clients/manu-logo.png",
       description: "Implementamos un sistema de gestión de pedidos y reservas que mejoró la eficiencia operativa del restaurante."
     },
     {
       name: "ESCUELA DE BELLEZA JUAN PABLO II",
-      logo: "✂️",
+      logo: "/images/clients/juanpablo-logo.png",
       description: "Desarrollamos una plataforma para la gestión de estudiantes y cursos, facilitando los procesos administrativos."
     },
     {
+      name: "NINA ANDINA RESTOBAR",
+      logo: "/images/clients/nina-andina-logo.png",
+      description: "Creamos una solución digital para la gestión de inventarios y pedidos, optimizando la experiencia gastronómica tradicional."
+    },
+    {
+      name: "RUDEPET PETSHOP",
+      logo: "/images/clients/rudepet-logo.png",
+      description: "Desarrollamos un sistema de gestión para inventario y seguimiento de clientes que mejoró la atención en esta tienda de mascotas en Ayacucho."
+    },
+    {
       name: "HOTEL MELTHON CLASS",
-      logo: "🏨",
+      logo: "/images/clients/melthon-logo.png",
       description: "Creamos un sistema de reservas online que incrementó las reservas directas y mejoró la experiencia del cliente."
     }
   ];
@@ -34,8 +43,12 @@ const Clients = () => {
               key={index} 
               className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all border border-gray-100 text-center group hover:border-a2tech-teal/30"
             >
-              <div className="text-5xl mb-4 bg-a2tech-light h-20 w-20 rounded-full flex items-center justify-center mx-auto group-hover:bg-a2tech-teal/10 transition-colors">
-                {client.logo}
+              <div className="mb-4 bg-a2tech-light h-24 w-24 rounded-full flex items-center justify-center mx-auto group-hover:bg-a2tech-teal/10 transition-colors overflow-hidden p-1">
+                <img 
+                  src={client.logo} 
+                  alt={`${client.name} logo`}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <h3 className="text-xl font-bold mb-3 text-a2tech-blue">{client.name}</h3>
               <p className="text-gray-600">{client.description}</p>
@@ -55,7 +68,7 @@ const Clients = () => {
               <p className="italic text-gray-700 mb-4">
                 "A2 Technology transformó nuestra forma de gestionar el negocio. Su sistema personalizado ha sido clave para mejorar nuestra eficiencia y servicio al cliente. Estamos muy satisfechos con su profesionalismo y resultados."
               </p>
-              <p className="font-medium text-a2tech-blue">Manuel Torres, Propietario de MANU BARRA CEVICHERA</p>
+              <p className="font-medium text-a2tech-blue">Manuel Garcia, Propietario de MANU BARRA CEVICHERA</p>
             </div>
           </div>
         </div>
