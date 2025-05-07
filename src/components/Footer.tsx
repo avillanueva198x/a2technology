@@ -58,10 +58,10 @@ const Footer = () => {
               <li className="flex items-start">
                 <span className="mr-3 text-a2tech-teal">✉️</span>
                 <a 
-                  href="mailto:avillanuevap198x@gmail.com" 
+                  href="mailto:contacto@a2technology.com.pe" 
                   className="text-white/70 hover:text-a2tech-teal transition-colors"
                 >
-                  avillanuevap198x@gmail.com
+                  contacto@a2technology.com.pe
                 </a>
               </li>
             </ul>
