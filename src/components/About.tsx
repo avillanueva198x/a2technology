@@ -1,7 +1,13 @@
-
 import { Button } from "@/components/ui/button";
 
 const About = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="about" className="section-padding bg-a2tech-light">
       <div className="container-custom">
@@ -26,8 +32,11 @@ const About = () => {
               </p>
             </div>
             
-            <Button asChild className="bg-a2tech-blue hover:bg-a2tech-blue/90">
-              <a href="#contact">Trabaja con Nosotros</a>
+            <Button 
+              onClick={() => scrollToSection('contact')} 
+              className="bg-a2tech-blue hover:bg-a2tech-blue/90"
+            >
+              Trabaja con Nosotros
             </Button>
           </div>
           

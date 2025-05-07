@@ -1,5 +1,11 @@
-
 const Footer = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-a2tech-blue text-white py-10">
       <div className="container-custom">
@@ -20,17 +26,21 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Enlaces rápidos</h3>
             <ul className="space-y-2">
               {[
-                { name: "Inicio", href: "#home" },
-                { name: "Servicios", href: "#services" },
-                { name: "Nosotros", href: "#about" },
-                { name: "Clientes", href: "#clients" },
-                { name: "Equipo", href: "#team" },
-                { name: "Contacto", href: "#contact" }
+                { name: "Inicio", id: "home" },
+                { name: "Servicios", id: "services" },
+                { name: "Nosotros", id: "about" },
+                { name: "Clientes", id: "clients" },
+                { name: "Equipo", id: "team" },
+                { name: "Contacto", id: "contact" }
               ].map((link) => (
                 <li key={link.name}>
                   <a 
-                    href={link.href} 
-                    className="text-white/70 hover:text-a2tech-teal transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(link.id);
+                    }}
+                    href="#"
+                    className="text-white/70 hover:text-a2tech-teal transition-colors cursor-pointer"
                   >
                     {link.name}
                   </a>
