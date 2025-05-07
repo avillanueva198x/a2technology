@@ -1,18 +1,26 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
+    user_name: "",
+    user_email: "",
+    user_phone: "",
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Inicializar EmailJS
+  useEffect(() => {
+    // TODO: Reemplaza con tu Public Key de EmailJS
+    emailjs.init("zM2Q8lCJeIhdNkOsc");
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -23,20 +31,40 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Mensaje enviado",
-        description: "Nos pondremos en contacto contigo lo antes posible.",
+    // Preparar la plantilla con los datos del formulario
+    const templateParams = {
+      from_name: formData.user_name,
+      from_email: formData.user_email,
+      from_phone: formData.user_phone,
+      message: formData.message,
+      to_name: "A2 Technology"
+    };
+    
+    // Enviar el email usando EmailJS
+    emailjs.send("service_o8zv8vb", "template_oacafiy", templateParams)
+      .then((result) => {
+        console.log('Email enviado!', result.text);
+        toast({
+          title: "Mensaje enviado",
+          description: "Nos pondremos en contacto contigo lo antes posible.",
+        });
+        setFormData({
+          user_name: "",
+          user_email: "",
+          user_phone: "",
+          message: ""
+        });
+      }, (error) => {
+        console.error('Error al enviar el email:', error.text);
+        toast({
+          title: "Error al enviar",
+          description: "Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.",
+          variant: "destructive"
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: ""
-      });
-      setIsSubmitting(false);
-    }, 1000);
   };
 
   return (
@@ -51,15 +79,15 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="user_name" className="block text-sm font-medium text-gray-700 mb-1">
                   Nombre completo
                 </label>
                 <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="user_name"
+                  name="user_name"
+                  value={formData.user_name}
                   onChange={handleChange}
                   placeholder="Ingresa tu nombre"
                   required
@@ -67,14 +95,14 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="user_email" className="block text-sm font-medium text-gray-700 mb-1">
                   Correo electrónico
                 </label>
                 <Input
-                  id="email"
-                  name="email"
+                  id="user_email"
+                  name="user_email"
                   type="email"
-                  value={formData.email}
+                  value={formData.user_email}
                   onChange={handleChange}
                   placeholder="tu@email.com"
                   required
@@ -82,13 +110,13 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="user_phone" className="block text-sm font-medium text-gray-700 mb-1">
                   Teléfono
                 </label>
                 <Input
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
+                  id="user_phone"
+                  name="user_phone"
+                  value={formData.user_phone}
                   onChange={handleChange}
                   placeholder="Tu número de teléfono"
                 />
@@ -130,7 +158,8 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-800">Ubicación</p>
+                  <p className="font-medium text-gray-800">Ubicaciones</p>
+                  <p className="text-gray-600">Lima, Perú</p>
                   <p className="text-gray-600">Ayacucho, Perú</p>
                 </div>
               </div>

@@ -54,7 +54,10 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <span className="mr-3 text-a2tech-teal">📍</span>
-                <span className="text-white/70">Ayacucho, Perú</span>
+                <div>
+                  <span className="text-white/70">Lima, Perú</span>
+                  <span className="text-white/70">Ayacucho, Perú</span><br/>
+                </div>
               </li>
               <li className="flex items-start">
                 <span className="mr-3 text-a2tech-teal">📞</span>
