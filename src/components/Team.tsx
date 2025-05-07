@@ -2,28 +2,28 @@
 const Team = () => {
   const team = [
     {
-      name: "Carlos Ramírez",
+      name: "Adolfo Villanueva",
       position: "CEO & Fundador",
       bio: "Ingeniero de Software con más de 10 años de experiencia en desarrollo de soluciones empresariales.",
       avatar: "👨‍💼"
     },
     {
-      name: "María Fernández",
+      name: "Eber Torres",
       position: "CTO",
       bio: "Especialista en arquitectura de software y desarrollo de aplicaciones web de alta escalabilidad.",
       avatar: "👩‍💼"
     },
     {
-      name: "Jorge Mendoza",
+      name: "Jhoam Jurado",
       position: "Consultor Senior",
       bio: "Experto en optimización de procesos y transformación digital de pequeñas y medianas empresas.",
       avatar: "👨‍💻"
     },
     {
-      name: "Ana Valdivia",
+      name: "Jose Minaya",
       position: "UX/UI Designer",
-      bio: "Diseñadora con enfoque en crear experiencias de usuario intuitivas y atractivas para todo tipo de aplicaciones.",
-      avatar: "👩‍🎨"
+      bio: "Diseñador con enfoque en crear experiencias de usuario intuitivas y atractivas para todo tipo de aplicaciones.",
+      avatar: "👨‍💻"
     }
   ];
 

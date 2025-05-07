@@ -49,19 +49,19 @@ const Footer = () => {
               <li className="flex items-start">
                 <span className="mr-3 text-a2tech-teal">📞</span>
                 <a 
-                  href="tel:+51123456789" 
+                  href="tel:+51931871964" 
                   className="text-white/70 hover:text-a2tech-teal transition-colors"
                 >
-                  +51 123 456 789
+                  +51 931 871 964
                 </a>
               </li>
               <li className="flex items-start">
                 <span className="mr-3 text-a2tech-teal">✉️</span>
                 <a 
-                  href="mailto:contacto@a2technology.com.pe" 
+                  href="mailto:avillanuevap198x@gmail.com" 
                   className="text-white/70 hover:text-a2tech-teal transition-colors"
                 >
-                  contacto@a2technology.com.pe
+                  avillanuevap198x@gmail.com
                 </a>
               </li>
             </ul>
