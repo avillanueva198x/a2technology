@@ -1,0 +1,111 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-fade-out {
+  animation: fade-out 0.5s ease-out forwards;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Estilos específicos para A2 Technology */
+.text-a2tech-blue {
+  color: #0A2463;
+}
+
+.text-a2tech-teal {
+  color: #3CAEA3;
+}
+
+.bg-a2tech-blue {
+  background-color: #0A2463;
+}
+
+.bg-a2tech-teal {
+  background-color: #3CAEA3;
+}
+
+.hover\:bg-a2tech-blue:hover {
+  background-color: #0A2463;
+}
+
+.hover\:bg-a2tech-blue\/90:hover {
+  background-color: rgba(10, 36, 99, 0.9);
+}
+
+.hover\:bg-a2tech-teal:hover {
+  background-color: #3CAEA3;
+}
+
+.hover\:bg-a2tech-teal\/90:hover {
+  background-color: rgba(60, 174, 163, 0.9);
+}
+
+.hover\:bg-a2tech-teal\/10:hover {
+  background-color: rgba(60, 174, 163, 0.1);
+}
+
+.hover\:text-a2tech-teal:hover {
+  color: #3CAEA3;
+}
+
+.border-a2tech-teal {
+  border-color: #3CAEA3;
+}
+
+.bg-a2tech-light {
+  background-color: #F2F4F8;
+}
+
+.bg-a2tech-dark {
+  background-color: #222222;
+}
+
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #0A2463, #3CAEA3);
+}
+
+.container-custom {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+} 
