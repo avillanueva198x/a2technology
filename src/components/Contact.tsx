@@ -132,7 +132,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium text-gray-800">Ubicación</p>
-                  <p className="text-gray-600">Lima, Perú</p>
+                  <p className="text-gray-600">Ayacucho, Perú</p>
                 </div>
               </div>
               
@@ -145,8 +145,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium text-gray-800">Email</p>
-                  <a href="mailto:contacto@a2technology.com.pe" className="text-a2tech-blue hover:text-a2tech-teal transition-colors">
-                    contacto@a2technology.com.pe
+                  <a href="mailto:avillanuevap198x@gmail.com" className="text-a2tech-blue hover:text-a2tech-teal transition-colors">
+                      avillanuevap198x@gmail.com
                   </a>
                 </div>
               </div>
@@ -159,8 +159,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium text-gray-800">Teléfono</p>
-                  <a href="tel:+51123456789" className="text-a2tech-blue hover:text-a2tech-teal transition-colors">
-                    +51 123 456 789
+                  <a href="tel:+51931871964" className="text-a2tech-blue hover:text-a2tech-teal transition-colors">
+                    +51 931 871 964
                   </a>
                 </div>
               </div>
