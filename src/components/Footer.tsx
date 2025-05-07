@@ -55,8 +55,8 @@ const Footer = () => {
               <li className="flex items-start">
                 <span className="mr-3 text-a2tech-teal">📍</span>
                 <div>
-                  <span className="text-white/70">Lima, Perú</span>
-                  <span className="text-white/70">Ayacucho, Perú</span><br/>
+                  <span className="text-white/70">Lima, Perú</span><br/>
+                  <span className="text-white/70">Ayacucho, Perú</span>
                 </div>
               </li>
               <li className="flex items-start">
@@ -66,6 +66,17 @@ const Footer = () => {
                   className="text-white/70 hover:text-a2tech-teal transition-colors"
                 >
                   +51 931 871 964
+                </a>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-3 text-a2tech-teal">💬</span>
+                <a 
+                  href="https://wa.me/51931871964?text=Hola%20A2%20Technology,%20estoy%20interesado%20en%20sus%20servicios." 
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="text-white/70 hover:text-a2tech-teal transition-colors"
+                >
+                  WhatsApp
                 </a>
               </li>
               <li className="flex items-start">
