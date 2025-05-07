@@ -1,7 +1,13 @@
-
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section 
       id="home" 
@@ -16,11 +22,20 @@ const Hero = () => {
             Desarrollamos software personalizado que impulsa el crecimiento de pequeñas y medianas empresas en todo Perú.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-a2tech-blue hover:bg-a2tech-blue/90 text-white">
-              <a href="#services">Nuestros Servicios</a>
+            <Button 
+              onClick={() => scrollToSection('services')}
+              size="lg" 
+              className="bg-a2tech-blue hover:bg-a2tech-blue/90 text-white"
+            >
+              Nuestros Servicios
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-a2tech-teal text-a2tech-teal hover:bg-a2tech-teal/10">
-              <a href="#contact">Contactar Ahora</a>
+            <Button 
+              onClick={() => scrollToSection('contact')}
+              size="lg" 
+              variant="outline" 
+              className="border-a2tech-teal text-a2tech-teal hover:bg-a2tech-teal/10"
+            >
+              Contactar Ahora
             </Button>
           </div>
           

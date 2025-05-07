@@ -1,6 +1,6 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,12 +19,20 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setMobileMenuOpen(false);
+  };
+
   const navLinks = [
-    { name: "Inicio", href: "#home" },
-    { name: "Servicios", href: "#services" },
-    { name: "Nosotros", href: "#about" },
-    { name: "Clientes", href: "#clients" },
-    { name: "Equipo", href: "#team" }
+    { name: "Inicio", id: "home" },
+    { name: "Servicios", id: "services" },
+    { name: "Nosotros", id: "about" },
+    { name: "Clientes", id: "clients" },
+    { name: "Equipo", id: "team" }
   ];
 
   return (
@@ -36,7 +44,14 @@ const Navbar = () => {
       }`}
     >
       <div className="container-custom flex justify-between items-center">
-        <a href="#home" className="flex items-center space-x-2">
+        <a 
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('home');
+          }}
+          href="#"
+          className="flex items-center space-x-2 cursor-pointer"
+        >
           <span className="text-xl md:text-2xl font-bold text-a2tech-blue">
             A2<span className="text-a2tech-teal">Technology</span>
           </span>
@@ -47,14 +62,21 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <a
               key={link.name}
-              href={link.href}
-              className="text-gray-700 hover:text-a2tech-teal transition-colors font-medium"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(link.id);
+              }}
+              href="#"
+              className="text-gray-700 hover:text-a2tech-teal transition-colors font-medium cursor-pointer"
             >
               {link.name}
             </a>
           ))}
-          <Button asChild className="bg-a2tech-teal hover:bg-a2tech-teal/90">
-            <a href="#contact">Contáctanos</a>
+          <Button 
+            onClick={() => scrollToSection('contact')} 
+            className="bg-a2tech-teal hover:bg-a2tech-teal/90"
+          >
+            Contáctanos
           </Button>
         </div>
 
@@ -82,19 +104,21 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-gray-700 hover:text-a2tech-teal py-2 transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(link.id);
+                }}
+                href="#"
+                className="text-gray-700 hover:text-a2tech-teal py-2 transition-colors cursor-pointer"
               >
                 {link.name}
               </a>
             ))}
             <Button 
-              onClick={() => setMobileMenuOpen(false)} 
-              asChild 
+              onClick={() => scrollToSection('contact')} 
               className="bg-a2tech-teal hover:bg-a2tech-teal/90 w-full mt-2"
             >
-              <a href="#contact">Contáctanos</a>
+              Contáctanos
             </Button>
           </div>
         </div>
