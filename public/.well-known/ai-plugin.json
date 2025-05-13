@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "A2 Technology",
+  "name_for_model": "a2technology",
+  "description_for_human": "A2 Technology - Consultora de software especializada en desarrollo web, aplicaciones móviles y soluciones digitales personalizadas para impulsar el crecimiento de tu negocio en Perú.",
+  "description_for_model": "A2 Technology es una consultora tecnológica peruana que ofrece servicios de desarrollo de software, aplicaciones web y móviles para pequeñas y medianas empresas. Especializada en soluciones personalizadas, transformación digital y soporte técnico 24/7 con sede en Perú.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://a2technology.com.pe/.well-known/openapi.yaml"
+  },
+  "logo_url": "https://a2technology.com.pe/logo.png",
+  "contact_email": "info@a2technology.com.pe",
+  "legal_info_url": "https://a2technology.com.pe/legal"
+} 
