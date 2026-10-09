@@ -7,17 +7,26 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-a2tech-blue text-white py-10">
+    <footer className="bg-a2tech-dark text-foreground py-10 border-t border-border">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4 flex items-center">
-              A2<span className="text-a2tech-teal">Technology</span>
-            </h3>
-            <p className="text-white/70 mb-4">
-              Soluciones tecnológicas personalizadas para impulsar el crecimiento de tu negocio.
+            <div className="flex items-center space-x-3 mb-4">
+              <svg className="w-8 h-8 rounded-xl shadow-[0_0_15px_rgba(47,224,199,0.25)] border border-a2tech-teal/30" viewBox="0 0 64 64">
+                <rect width="64" height="64" rx="14" fill="#0a2463"/>
+                <text x="32" y="45" textAnchor="middle" fontFamily="Inter, system-ui, sans-serif" fontWeight="800" fontSize="36">
+                  <tspan fill="#ffffff">A</tspan>
+                  <tspan fill="#2FE0C7">2</tspan>
+                </text>
+              </svg>
+              <h3 className="text-xl font-bold text-white tracking-tight">
+                A2<span className="text-a2tech-teal"> Technology</span>
+              </h3>
+            </div>
+            <p className="text-muted-foreground text-sm mb-4">
+              Consultoría en software, automatización de procesos e inteligencia artificial aplicada para empresas.
             </p>
-            <p className="text-white/70">
+            <p className="text-xs text-muted-foreground font-mono">
               © {new Date().getFullYear()} A2 Technology. Todos los derechos reservados.
             </p>
           </div>
@@ -28,9 +37,9 @@ const Footer = () => {
               {[
                 { name: "Inicio", id: "home" },
                 { name: "Servicios", id: "services" },
+                { name: "Productos", id: "products" },
+                { name: "Proceso", id: "process" },
                 { name: "Nosotros", id: "about" },
-                { name: "Clientes", id: "clients" },
-                { name: "Equipo", id: "team" },
                 { name: "Contacto", id: "contact" }
               ].map((link) => (
                 <li key={link.name}>
@@ -40,7 +49,7 @@ const Footer = () => {
                       scrollToSection(link.id);
                     }}
                     href="#"
-                    className="text-white/70 hover:text-a2tech-teal transition-colors cursor-pointer"
+                    className="text-muted-foreground hover:text-a2tech-teal transition-colors cursor-pointer"
                   >
                     {link.name}
                   </a>
@@ -55,15 +64,15 @@ const Footer = () => {
               <li className="flex items-start">
                 <span className="mr-3 text-a2tech-teal">📍</span>
                 <div>
-                  <span className="text-white/70">Lima, Perú</span><br/>
-                  <span className="text-white/70">Ayacucho, Perú</span>
+                  <span className="text-muted-foreground">Lima, Perú</span><br/>
+                  <span className="text-muted-foreground">Ayacucho, Perú</span>
                 </div>
               </li>
               <li className="flex items-start">
                 <span className="mr-3 text-a2tech-teal">📞</span>
                 <a 
                   href="tel:+51931871964" 
-                  className="text-white/70 hover:text-a2tech-teal transition-colors"
+                  className="text-muted-foreground hover:text-a2tech-teal transition-colors"
                 >
                   +51 931 871 964
                 </a>
@@ -74,7 +83,7 @@ const Footer = () => {
                   href="https://wa.me/51931871964?text=Hola%20A2%20Technology,%20estoy%20interesado%20en%20sus%20servicios." 
                   target="_blank"
                   rel="noopener noreferrer" 
-                  className="text-white/70 hover:text-a2tech-teal transition-colors"
+                  className="text-muted-foreground hover:text-a2tech-teal transition-colors"
                 >
                   WhatsApp
                 </a>
@@ -83,7 +92,7 @@ const Footer = () => {
                 <span className="mr-3 text-a2tech-teal">✉️</span>
                 <a 
                   href="mailto:contacto@a2technology.com.pe" 
-                  className="text-white/70 hover:text-a2tech-teal transition-colors"
+                  className="text-muted-foreground hover:text-a2tech-teal transition-colors"
                 >
                   contacto@a2technology.com.pe
                 </a>

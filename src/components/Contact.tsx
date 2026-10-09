@@ -68,7 +68,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-white">
+    <section id="contact" className="section-padding bg-a2tech-surface">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="section-title">Contáctanos</h2>
@@ -81,7 +81,7 @@ const Contact = () => {
           <div>
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="user_name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="user_name" className="block text-sm font-medium text-foreground/80 mb-1">
                   Nombre completo
                 </label>
                 <Input
@@ -95,7 +95,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="user_email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="user_email" className="block text-sm font-medium text-foreground/80 mb-1">
                   Correo electrónico
                 </label>
                 <Input
@@ -110,7 +110,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="user_phone" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="user_phone" className="block text-sm font-medium text-foreground/80 mb-1">
                   Teléfono
                 </label>
                 <Input
@@ -123,7 +123,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-foreground/80 mb-1">
                   Mensaje
                 </label>
                 <Textarea
@@ -144,11 +144,15 @@ const Contact = () => {
               >
                 {isSubmitting ? "Enviando..." : "Enviar mensaje"}
               </Button>
+              <p className="text-xs text-muted-foreground">
+                Al enviar este formulario aceptás que A2 Technology te contacte para responder tu consulta.
+                Tus datos no se comparten con terceros.
+              </p>
             </form>
           </div>
           
-          <div className="bg-a2tech-light rounded-lg p-8">
-            <h3 className="text-xl font-bold mb-6 text-a2tech-blue">Información de contacto</h3>
+          <div className="bg-background rounded-lg p-8 border border-border">
+            <h3 className="font-display text-xl font-bold mb-6 text-foreground">Información de contacto</h3>
             
             <div className="space-y-6">
               <div className="flex items-start">
@@ -158,9 +162,9 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-800">Ubicaciones</p>
-                  <p className="text-gray-600">Lima, Perú</p>
-                  <p className="text-gray-600">Ayacucho, Perú</p>
+                  <p className="font-medium text-foreground">Ubicaciones</p>
+                  <p className="text-muted-foreground">Lima, Perú</p>
+                  <p className="text-muted-foreground">Ayacucho, Perú</p>
                 </div>
               </div>
               
@@ -172,7 +176,7 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-800">Email</p>
+                  <p className="font-medium text-foreground">Email</p>
                   <a href="mailto:contacto@a2technology.com.pe" className="text-a2tech-blue hover:text-a2tech-teal transition-colors">
                         contacto@a2technology.com.pe
                   </a>
@@ -186,7 +190,7 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-800">Teléfono</p>
+                  <p className="font-medium text-foreground">Teléfono</p>
                   <a href="tel:+51931871964" className="text-a2tech-blue hover:text-a2tech-teal transition-colors">
                     +51 931 871 964
                   </a>
@@ -204,46 +208,6 @@ const Contact = () => {
                     </a>
                   </div>
                 </div>
-              </div>
-            </div>
-            
-            <div className="mt-10">
-              <h4 className="font-medium text-gray-800 mb-3">Síguenos</h4>
-              <div className="flex space-x-4">
-                <a 
-                  href="https://facebook.com/a2technology" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="bg-a2tech-blue/10 p-2 rounded-full hover:bg-a2tech-blue/20 transition-colors"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-a2tech-blue w-5 h-5">
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                  </svg>
-                </a>
-                <a 
-                  href="https://linkedin.com/company/a2technology" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="bg-a2tech-blue/10 p-2 rounded-full hover:bg-a2tech-blue/20 transition-colors"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-a2tech-blue w-5 h-5">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
-                </a>
-                <a 
-                  href="https://instagram.com/a2technology.pe" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="bg-a2tech-blue/10 p-2 rounded-full hover:bg-a2tech-blue/20 transition-colors"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-a2tech-blue w-5 h-5">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
-                </a>
               </div>
             </div>
           </div>
