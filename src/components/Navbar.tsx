@@ -30,7 +30,8 @@ const Navbar = () => {
   const navLinks = [
     { name: "Inicio", id: "home" },
     { name: "Servicios", id: "services" },
-    { name: "Productos", id: "products" },
+    { name: "Ecosistema SaaS", id: "products" },
+    { name: "En Producción", id: "production" },
     { name: "Proceso", id: "process" },
     { name: "Nosotros", id: "about" }
   ];

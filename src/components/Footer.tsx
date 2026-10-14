@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-a2tech-dark text-foreground py-10 border-t border-border">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <svg className="w-8 h-8 rounded-xl shadow-[0_0_15px_rgba(47,224,199,0.25)] border border-a2tech-teal/30" viewBox="0 0 64 64">
@@ -24,20 +24,50 @@ const Footer = () => {
               </h3>
             </div>
             <p className="text-muted-foreground text-sm mb-4">
-              Consultoría en software, automatización de procesos e inteligencia artificial aplicada para empresas.
+              Consultoría en software empresarial, arquitectura cloud y desarrollo de plataformas SaaS verticales.
             </p>
             <p className="text-xs text-muted-foreground font-mono">
               © {new Date().getFullYear()} A2 Technology. Todos los derechos reservados.
             </p>
           </div>
+
+          <div>
+            <h3 className="text-sm font-mono uppercase tracking-wider text-white font-bold mb-4">
+              Ecosistema SaaS
+            </h3>
+            <ul className="space-y-2 text-sm">
+              {[
+                { name: "QatuySys (POS & SUNAT)", url: "https://qatuysys.a2technology.com.pe" },
+                { name: "WasiSys (Gestión Hotelera)", url: "https://wasisys.a2technology.com.pe/" },
+                { name: "HaytaySys (Torneos Deportivos)", url: "https://haytaysys.a2technology.com.pe/" },
+                { name: "GrassManager (Canchas Sintéticas)", url: "https://grassmanager.a2technology.com.pe/" },
+                { name: "QolqeSys (Fintech & Panderos)", url: "https://qolqesys.a2technology.com.pe/" },
+              ].map((item) => (
+                <li key={item.name}>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-a2tech-teal transition-colors flex items-center justify-between group"
+                  >
+                    <span>{item.name}</span>
+                    <span className="text-xs text-a2tech-teal opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4">Enlaces rápidos</h3>
-            <ul className="space-y-2">
+            <h3 className="text-sm font-mono uppercase tracking-wider text-white font-bold mb-4">
+              Navegación
+            </h3>
+            <ul className="space-y-2 text-sm">
               {[
                 { name: "Inicio", id: "home" },
                 { name: "Servicios", id: "services" },
-                { name: "Productos", id: "products" },
+                { name: "Ecosistema SaaS", id: "products" },
+                { name: "En Producción", id: "production" },
                 { name: "Proceso", id: "process" },
                 { name: "Nosotros", id: "about" },
                 { name: "Contacto", id: "contact" }
