@@ -24,6 +24,7 @@ import {
   Layers,
   type LucideIcon
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Reveal from "./motion/Reveal";
@@ -36,6 +37,9 @@ interface SaaSProduct {
   categoryLabel: string;
   url: string;
   statusBadge: string;
+  // Only set for products with a real paying client and a published
+  // pricing page (today just QatuySys, a2/web/pagina-qatuy-2026-10-20-dev).
+  pricingNote?: { text: string; path: string };
   description: string;
   accentColor: string;
   borderHoverColor: string;
@@ -61,6 +65,7 @@ const PRODUCTS: SaaSProduct[] = [
     categoryLabel: "Comercio & Retail",
     url: "https://qatuysys.a2technology.com.pe",
     statusBadge: "En Producción / Marcha Blanca",
+    pricingNote: { text: "Desde S/ 60 al mes", path: "/qatuy" },
     description: "Plataforma de gestión comercial multiempresa y multialmacén. Centraliza el punto de venta (POS), el control de stock en tiempo real y la emisión de facturas y boletas electrónicas SUNAT.",
     accentColor: "from-emerald-500/20 to-teal-500/10",
     borderHoverColor: "hover:border-emerald-500/50",
@@ -94,7 +99,7 @@ const PRODUCTS: SaaSProduct[] = [
     category: "hoteleria",
     categoryLabel: "Hotelería & Hospedajes",
     url: "https://wasisys.a2technology.com.pe/",
-    statusBadge: "En Producción / Multi-hotel",
+    statusBadge: "Disponible para demo",
     description: "PMS cloud diseñado para hoteles, hostales y apart-hoteles. Permite administrar reservas en tiempo real, agilizar el check-in, coordinar tareas de limpieza y gestionar consumos de minibar.",
     accentColor: "from-blue-500/20 to-cyan-500/10",
     borderHoverColor: "hover:border-cyan-500/50",
@@ -128,7 +133,7 @@ const PRODUCTS: SaaSProduct[] = [
     category: "deportes",
     categoryLabel: "Deportes & Torneos",
     url: "https://haytaysys.a2technology.com.pe/",
-    statusBadge: "SaaS Multi-tenant Activo",
+    statusBadge: "En desarrollo",
     description: "Plataforma multi-tenant para deporte amateur, ligas distritales, promociones escolares y clubes. Reemplaza el caos de planillas Excel y grupos de WhatsApp con fixtures automáticos y pagos validados.",
     accentColor: "from-orange-500/20 to-amber-500/10",
     borderHoverColor: "hover:border-orange-500/50",
@@ -162,7 +167,7 @@ const PRODUCTS: SaaSProduct[] = [
     category: "deportes",
     categoryLabel: "Deportes & Canchas",
     url: "https://grassmanager.a2technology.com.pe/",
-    statusBadge: "Sistema Operativo en Vivo",
+    statusBadge: "Disponible para demo",
     description: "Software para dueños de complejos deportivos y canchas de grass sintético. Administra reservas por hora, evita cruces de turnos, controla señas y administra las ventas de bebidas y snacks del cafetín.",
     accentColor: "from-lime-500/20 to-emerald-500/10",
     borderHoverColor: "hover:border-lime-500/50",
@@ -196,7 +201,7 @@ const PRODUCTS: SaaSProduct[] = [
     category: "fintech",
     categoryLabel: "Fintech & Grupos",
     url: "https://qolqesys.a2technology.com.pe/",
-    statusBadge: "Fintech Multi-tenant",
+    statusBadge: "En desarrollo",
     description: "SaaS financiero multi-grupo para panderos familiares, banquitos de ahorro y juntas de comerciantes. Automatiza aportes periódicos, calcula préstamos internos con interés y reparte ganancias con transparencia.",
     accentColor: "from-amber-500/20 to-yellow-500/10",
     borderHoverColor: "hover:border-yellow-500/50",
@@ -352,6 +357,15 @@ const Products = () => {
                     <p className="text-xs text-a2tech-teal/90 font-medium mt-1">
                       {product.tagline}
                     </p>
+                    {product.pricingNote && (
+                      <Link
+                        to={product.pricingNote.path}
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-white hover:text-a2tech-teal transition-colors mt-2"
+                      >
+                        {product.pricingNote.text} · Ver planes →
+                      </Link>
+                    )}
                   </div>
 
                   {/* Description */}
@@ -485,6 +499,10 @@ const Products = () => {
                     {selectedProduct.mockup.headerBadge}
                   </span>
                 </div>
+
+                <span className="text-[10px] font-mono text-muted-foreground block -mt-1">
+                  Datos de ejemplo, no corresponden a actividad real
+                </span>
 
                 {/* Simulated Stats Bar */}
                 <div className="grid grid-cols-2 gap-3">
