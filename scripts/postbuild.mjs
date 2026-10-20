@@ -8,7 +8,7 @@
 //   still boots the app (status 404) instead of GitHub's generic page.
 import { copyFileSync, mkdirSync } from "node:fs";
 
-const routes = ["privacidad", "terminos"];
+const routes = ["privacidad", "terminos", "qatuy"];
 const shell = "dist/index.html";
 
 copyFileSync(shell, "dist/404.html");
