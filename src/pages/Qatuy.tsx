@@ -74,7 +74,7 @@ const PLANS = [
     name: "Pro",
     cuota: "Mensual",
     precio: "S/ 300/mes",
-    nota: "Pensado para negocios con más de un local o mayor volumen de comprobantes al mes.",
+    nota: "Para negocios que facturan con más de un RUC: hasta 5 empresas en un solo panel.",
   },
 ];
 
@@ -212,7 +212,20 @@ const Qatuy = () => {
               incluido en ambos planes.
             </p>
           </div>
-          <Reveal className="overflow-x-auto">
+          {/* Below sm: stacked cards, one per plan, easier to read at 375px. */}
+          <Reveal className="sm:hidden grid grid-cols-1 gap-4">
+            {PLANS.map((plan) => (
+              <div key={plan.name} className="rounded-2xl bg-a2tech-surface border border-border p-5">
+                <div className="font-display text-xl text-white mb-2">{plan.name}</div>
+                <div className="font-display text-lg font-bold text-a2tech-teal">{plan.precio}</div>
+                <div className="text-xs text-muted-foreground mt-1">{plan.cuota}</div>
+                <div className="text-xs text-muted-foreground mt-3">{plan.nota}</div>
+              </div>
+            ))}
+          </Reveal>
+
+          {/* From sm: up, side-by-side comparison table. */}
+          <Reveal className="hidden sm:block overflow-x-auto">
             <table className="w-full border border-border rounded-2xl overflow-hidden text-sm">
               <thead>
                 <tr className="bg-a2tech-surface">
@@ -243,6 +256,9 @@ const Qatuy = () => {
               </tbody>
             </table>
           </Reveal>
+          <p className="text-center text-xs text-muted-foreground mt-4">
+            Plan Intermedio disponible a pedido para quien supere los 120 comprobantes con un solo RUC.
+          </p>
           <p className="text-center text-xs text-muted-foreground mt-6">
             El alta incluye carga de tu catálogo desde Excel, configuración de
             tu empresa y sedes, usuarios y roles, una capacitación remota y
