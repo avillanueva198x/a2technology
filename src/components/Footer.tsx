@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -26,9 +28,17 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm mb-4">
               Consultoría en software empresarial, arquitectura cloud y desarrollo de plataformas SaaS verticales.
             </p>
-            <p className="text-xs text-muted-foreground font-mono">
+            <p className="text-xs text-muted-foreground font-mono mb-3">
               © {new Date().getFullYear()} A2 Technology. Todos los derechos reservados.
             </p>
+            <div className="flex gap-4 text-xs">
+              <Link to="/privacidad" className="text-muted-foreground hover:text-a2tech-teal transition-colors">
+                Política de Privacidad
+              </Link>
+              <Link to="/terminos" className="text-muted-foreground hover:text-a2tech-teal transition-colors">
+                Términos y Condiciones
+              </Link>
+            </div>
           </div>
 
           <div>
