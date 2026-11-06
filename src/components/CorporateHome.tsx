@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowDown, ArrowRight, ArrowUpRight, Blocks, Check, Cloud, Code2, Compass, GraduationCap, Handshake, Layers3, MessageCircle, Network, Scissors, ShieldCheck, Sparkles, Store, Hotel, Goal, UtensilsCrossed } from "lucide-react";
 
 const whatsapp = (context: string) => `https://wa.me/51931871964?text=${encodeURIComponent(`Hola A2 Technology. Me gustaría conversar sobre ${context}.`)}`;
@@ -19,9 +20,9 @@ const cases: { name: string; area: string; description: string; icon: typeof Gra
   { name: "Estilismos", area: "Estilismos · Instituto Juan Pablo II", description: "Sistema de gestión a medida para el área de Estilismos. Tecnología aplicada a las necesidades de una operación real.", icon: Scissors, image: { src: "/cases/jpii-estilismos.png", alt: "Pantalla de acceso del sistema de Estilismos, sin datos personales" } },
 ];
 const solutions = [
-  { name: "Qatuy", area: "Gestión comercial", icon: Store, theme: "commerce", description: "Nuestra solución propia para negocios de comercio. Desarrollo aplicado a la gestión comercial.", url: "https://qatuysys.a2technology.com.pe/", status: "En marcha blanca" },
-  { name: "Wasi", area: "Gestión hotelera", icon: Hotel, theme: "hospitality", description: "Tecnología propia para el sector hotelero. Una solución construida alrededor de este tipo de negocio.", url: "https://wasisys.a2technology.com.pe/", status: "Demo disponible" },
-  { name: "GrassManager", area: "Reservas deportivas", icon: Goal, theme: "sports", description: "Una solución para la reserva de canchas deportivas. Software que conecta tecnología y actividad comercial.", url: "https://grassmanager.a2technology.com.pe/", status: "Demo disponible" },
+  { name: "Qatuy", area: "Gestión comercial", icon: Store, theme: "commerce", description: "Nuestra solución propia para negocios de comercio. Desarrollo aplicado a la gestión comercial.", url: "https://qatuysys.a2technology.com.pe/", page: "/qatuy", status: "En marcha blanca" },
+  { name: "Wasi", area: "Gestión hotelera", icon: Hotel, theme: "hospitality", description: "Tecnología propia para el sector hotelero. Una solución construida alrededor de este tipo de negocio.", url: "https://wasisys.a2technology.com.pe/", page: "/wasi", status: "Demo disponible" },
+  { name: "GrassManager", area: "Reservas deportivas", icon: Goal, theme: "sports", description: "Una solución para la reserva de canchas deportivas. Software que conecta tecnología y actividad comercial.", url: "https://grassmanager.a2technology.com.pe/", page: "/grass", status: "Demo disponible" },
   { name: "Mikhuna WasiSys", area: "Restaurantes", icon: UtensilsCrossed, theme: "dining", description: "Nuestro sistema para restaurantes. Una línea de software propia, distinta del desarrollo institucional Mikhuna.", url: "https://mikhunawasisys.a2technology.com.pe/login", status: "Consultar disponibilidad" },
 ];
 
@@ -59,9 +60,12 @@ const CorporateHome = () => <>
   </div></section>
   <section className="a2-section a2-products" id="products" aria-labelledby="a2-products-title"><div className="a2-wrap">
     <div className="a2-section-heading"><div><p className="a2-eyebrow">TECNOLOGÍA PROPIA · CONSTRUIDA POR A2</p><h2 id="a2-products-title">No nos quedamos en las ideas.<br /><span>También construimos productos.</span></h2></div><p>Además de desarrollar a medida, creamos nuestras propias soluciones. Experiencia concreta en comercio, hotelería, deporte y gastronomía.</p></div>
-    <div className="a2-products-grid">{solutions.map(({ name, area, description, icon: Icon, theme, status, url }) => <article className={`a2-product-card a2-product-${theme}`} key={name}>
+    <div className="a2-products-grid">{solutions.map(({ name, area, description, icon: Icon, theme, status, url, page }) => <article className={`a2-product-card a2-product-${theme}`} key={name}>
       <div className="a2-product-identity" aria-hidden="true"><div className="a2-product-identity-top"><span>DESARROLLADO POR A2</span><Blocks size={19} /></div><div className="a2-product-brand"><span className="a2-product-symbol"><Icon size={38} strokeWidth={1.5} /></span><span>{name}</span></div><span className="a2-product-sector">{area}</span></div>
-      <div className="a2-product-body"><div className="a2-product-heading"><h3>{name}</h3><span className="a2-product-status">{status}</span></div><p>{description}</p><a href={url} target="_blank" rel="noopener noreferrer">Explorar el proyecto <ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> {name} (abre en una pestaña nueva)</span></a></div>
+      <div className="a2-product-body"><div className="a2-product-heading"><h3>{name}</h3><span className="a2-product-status">{status}</span></div><p>{description}</p>
+        {page && <Link to={page}>Ver planes y precios <ArrowRight size={18} aria-hidden="true" /><span className="sr-only"> de {name}</span></Link>}
+        <a href={url} target="_blank" rel="noopener noreferrer">Explorar el proyecto <ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> {name} (abre en una pestaña nueva)</span></a>
+      </div>
     </article>)}</div>
     <div className="a2-products-note"><Code2 size={22} aria-hidden="true" /><p><strong>Productos propios. La misma capacidad para tu proyecto.</strong> Esta experiencia es parte de lo que llevamos al desarrollo de soluciones para otras empresas.</p></div>
   </div></section>
