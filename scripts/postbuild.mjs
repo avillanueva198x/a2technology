@@ -51,7 +51,7 @@ const pages = {
 const shell = readFileSync("dist/index.html", "utf8");
 copyFileSync("dist/index.html", "dist/404.html");
 for (const [route, page] of Object.entries(pages)) {
-  const url = `${origin}/${route}`;
+  const url = `${origin}/${route}/`;
   let html = shell
     .replace(/<title>.*?<\/title>/, `<title>${page.title}</title>`)
     .replace(/(<meta (?:name|property)="(?:description|og:description|twitter:description)" content=")[^"]*(")/g, `$1${page.description}$2`)
