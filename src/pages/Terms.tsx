@@ -16,8 +16,9 @@ const Terms = () => {
             <h2>1. Objeto</h2>
             <p>
               Estos términos regulan el uso de los sistemas de software como servicio (SaaS)
-              desarrollados y operados por A2 Technology E.I.R.L., RUC [RUC], con domicilio en
-              [DIRECCIÓN], Perú. El servicio se presta bajo un modelo de suscripción mensual, cuyo
+              desarrollados y operados por A2 Technology E.I.R.L., RUC 20614497115, con domicilio en
+              Jr. Las Orquídeas Mz. D3 Lt. 4, Urbanización Primavera, Andrés Avelino Cáceres Dorregaray,
+              Huamanga, Ayacucho, Perú. El servicio se presta bajo un modelo de suscripción mensual, cuyo
               alcance y precio se detallan en la propuesta comercial aceptada por el cliente.
             </p>
 
