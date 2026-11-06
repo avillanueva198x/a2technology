@@ -35,10 +35,10 @@ const pages = {
   },
   wasi: {
     title: "Wasi Sys | Software para hoteles y hostales pequeños en Perú",
-    description: "Gestiona reservas, check-in, limpieza y caja de tu hotel u hostal desde el celular. Sistema peruano, con soporte directo por WhatsApp.",
+    description: "Gestiona reservas, check-in, caja por turno y tienda de tu hotel u hostal desde el celular. Sistema peruano, con soporte directo por WhatsApp.",
     schema: softwareApplicationSchema(
       "Wasi Sys",
-      "Sistema de gestión hotelera para hoteles y hostales pequeños en Perú: reservas, check-in, limpieza y caja.",
+      "Sistema de gestión hotelera para hoteles y hostales pequeños en Perú: reservas, check-in, caja por turno y tienda.",
       60
     ),
   },
