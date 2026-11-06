@@ -63,7 +63,7 @@ const CorporateHome = () => <>
     <div className="a2-products-grid">{solutions.map(({ name, area, description, icon: Icon, theme, status, url, page }) => <article className={`a2-product-card a2-product-${theme}`} key={name}>
       <div className="a2-product-identity" aria-hidden="true"><div className="a2-product-identity-top"><span>DESARROLLADO POR A2</span><Blocks size={19} /></div><div className="a2-product-brand"><span className="a2-product-symbol"><Icon size={38} strokeWidth={1.5} /></span><span>{name}</span></div><span className="a2-product-sector">{area}</span></div>
       <div className="a2-product-body"><div className="a2-product-heading"><h3>{name}</h3><span className="a2-product-status">{status}</span></div><p>{description}</p>
-        {page && <Link to={page}>Ver planes y precios <ArrowRight size={18} aria-hidden="true" /><span className="sr-only"> de {name}</span></Link>}
+        {page && <Link to={page}>Ver planes <ArrowRight size={18} aria-hidden="true" /><span className="sr-only"> de {name}</span></Link>}
         <a href={url} target="_blank" rel="noopener noreferrer">Explorar el proyecto <ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> {name} (abre en una pestaña nueva)</span></a>
       </div>
     </article>)}</div>

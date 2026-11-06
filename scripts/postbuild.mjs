@@ -2,7 +2,7 @@ import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 const origin = "https://a2technology.com.pe";
 
-function softwareApplicationSchema(name, description, price) {
+function softwareApplicationSchema(name, description) {
   return JSON.stringify({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -10,7 +10,6 @@ function softwareApplicationSchema(name, description, price) {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description,
-    offers: { "@type": "Offer", price: String(price), priceCurrency: "PEN" },
     provider: { "@type": "Organization", name: "A2 Technology" },
   });
 }
@@ -26,11 +25,10 @@ const pages = {
   },
   qatuy: {
     title: "Qatuy | Sistema de ventas con facturación electrónica SUNAT",
-    description: "Punto de venta, inventario multialmacén, caja por turno y facturación electrónica SUNAT desde S/60 al mes. Para bodegas, ferreterías, licorerías y más.",
+    description: "Punto de venta, inventario multialmacén, caja por turno y facturación electrónica SUNAT para bodegas, ferreterías, licorerías y más.",
     schema: softwareApplicationSchema(
       "Qatuy",
-      "Sistema de punto de venta, inventario multialmacén y facturación electrónica SUNAT para pymes peruanas.",
-      60
+      "Sistema de punto de venta, inventario multialmacén y facturación electrónica SUNAT para pymes peruanas."
     ),
   },
   wasi: {
@@ -38,8 +36,7 @@ const pages = {
     description: "Gestiona reservas, check-in, caja por turno y tienda de tu hotel u hostal desde el celular. Sistema peruano, con soporte directo por WhatsApp.",
     schema: softwareApplicationSchema(
       "Wasi Sys",
-      "Sistema de gestión hotelera para hoteles y hostales pequeños en Perú: reservas, check-in, caja por turno y tienda.",
-      60
+      "Sistema de gestión hotelera para hoteles y hostales pequeños en Perú: reservas, check-in, caja por turno y tienda."
     ),
   },
   grass: {
@@ -47,8 +44,7 @@ const pages = {
     description: "Controla reservas por hora, señas y ventas de cafetín en tu complejo de canchas sintéticas. Evita cruces de turno y pagos sin registrar.",
     schema: softwareApplicationSchema(
       "GrassManager",
-      "Sistema de reservas por hora, señas y ventas de cafetín para complejos de canchas deportivas.",
-      60
+      "Sistema de reservas por hora, señas y ventas de cafetín para complejos de canchas deportivas."
     ),
   },
 };

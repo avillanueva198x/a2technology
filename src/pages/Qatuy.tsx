@@ -66,14 +66,10 @@ const RUBROS = [
 const PLANS = [
   {
     name: "Básico",
-    cuota: "Mensual o anual",
-    precio: "S/ 60/mes o S/ 650/año",
-    nota: "Hasta 120 comprobantes electrónicos SUNAT al mes incluidos. Pagando anual ahorras S/ 70 frente a 12 cuotas mensuales.",
+    nota: "Incluye hasta 120 comprobantes electrónicos SUNAT al mes.",
   },
   {
     name: "Pro",
-    cuota: "Mensual",
-    precio: "S/ 300/mes",
     nota: "Para negocios que facturan con más de un RUC: hasta 5 empresas en un solo panel.",
   },
 ];
@@ -84,8 +80,8 @@ const FAQS = [
     a: "Factura electrónica y nota de crédito ya están validadas con SUNAT en producción. La boleta electrónica está en su proceso final de validación y se habilita por RUC.",
   },
   {
-    q: "¿Cuánto cuesta y qué incluye?",
-    a: "Básico: S/ 60/mes o S/ 650/año, con hasta 120 comprobantes electrónicos al mes incluidos. Pro: S/ 300/mes. Ventas, inventario multialmacén, caja por turno, compras, lotes y vencimiento, y exportación SIRE (beta) están incluidos en ambos planes.",
+    q: "¿Cuánto cuesta?",
+    a: "Consúltanos por WhatsApp y te damos el plan que corresponde a tu negocio. Ventas, inventario multialmacén, caja por turno, compras, lotes y vencimiento, y exportación SIRE (beta) están incluidos en ambos planes.",
   },
   {
     q: "¿Funciona con varios almacenes o solo un local?",
@@ -158,7 +154,7 @@ const Qatuy = () => {
               href="#planes"
               className="inline-flex items-center gap-2 rounded-xl bg-a2tech-surface border border-border hover:border-a2tech-teal/50 text-foreground font-semibold text-sm h-11 px-6 transition-all"
             >
-              Ver planes y precios
+              Ver planes
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -205,60 +201,31 @@ const Qatuy = () => {
       <section id="planes" className="section-padding bg-background">
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-12">
-            <h2 className="section-title">Planes y precios</h2>
+            <h2 className="section-title">Planes</h2>
             <p className="section-subtitle mb-0">
               Todo lo demás —ventas, inventario multialmacén, caja por turno,
               compras, lotes y vencimiento, y exportación SIRE (beta)— está
               incluido en ambos planes.
             </p>
           </div>
-          {/* Below sm: stacked cards, one per plan, easier to read at 375px. */}
-          <Reveal className="sm:hidden grid grid-cols-1 gap-4">
+          <Reveal className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {PLANS.map((plan) => (
-              <div key={plan.name} className="rounded-2xl bg-a2tech-surface border border-border p-5">
+              <div key={plan.name} className="rounded-2xl bg-a2tech-surface border border-border p-6">
                 <div className="font-display text-xl text-white mb-2">{plan.name}</div>
-                <div className="font-display text-lg font-bold text-a2tech-teal">{plan.precio}</div>
-                <div className="text-xs text-muted-foreground mt-1">{plan.cuota}</div>
-                <div className="text-xs text-muted-foreground mt-3">{plan.nota}</div>
+                <div className="text-sm text-muted-foreground">{plan.nota}</div>
               </div>
             ))}
           </Reveal>
-
-          {/* From sm: up, side-by-side comparison table. */}
-          <Reveal className="hidden sm:block overflow-x-auto">
-            <table className="w-full border border-border rounded-2xl overflow-hidden text-sm">
-              <thead>
-                <tr className="bg-a2tech-surface">
-                  <th className="p-4 text-left text-muted-foreground font-mono text-xs uppercase tracking-wider"></th>
-                  {PLANS.map((plan) => (
-                    <th key={plan.name} className="p-4 text-left font-display text-xl text-white">
-                      {plan.name}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-t border-border">
-                  <td className="p-4 text-muted-foreground font-mono text-xs uppercase tracking-wider">Cuota</td>
-                  {PLANS.map((plan) => (
-                    <td key={plan.name} className="p-4 text-foreground">{plan.cuota}</td>
-                  ))}
-                </tr>
-                <tr className="border-t border-border bg-a2tech-surface/40">
-                  <td className="p-4 text-muted-foreground font-mono text-xs uppercase tracking-wider">Precio</td>
-                  {PLANS.map((plan) => (
-                    <td key={plan.name} className="p-4">
-                      <div className="font-display text-lg font-bold text-a2tech-teal">{plan.precio}</div>
-                      <div className="text-xs text-muted-foreground mt-1">{plan.nota}</div>
-                    </td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          </Reveal>
-          <p className="text-center text-xs text-muted-foreground mt-4">
-            Plan Intermedio disponible a pedido para quien supere los 120 comprobantes con un solo RUC.
-          </p>
+          <div className="text-center mt-8">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-a2tech-teal hover:bg-a2tech-teal/90 text-a2tech-dark font-semibold text-sm h-11 px-6 shadow-[0_0_20px_rgba(47,224,199,0.3)] transition-all"
+            >
+              Consultar por WhatsApp
+            </a>
+          </div>
           <p className="text-center text-xs text-muted-foreground mt-6">
             El alta incluye carga de tu catálogo desde Excel, configuración de
             tu empresa y sedes, usuarios y roles, una capacitación remota y

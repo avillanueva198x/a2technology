@@ -52,14 +52,10 @@ const FUNCIONES = [
 const PLANS = [
   {
     name: "Básico",
-    cuota: "Mensual o anual",
-    precio: "S/ 60/mes o S/ 650/año",
     nota: "Hasta 3 canchas y 120 comprobantes al mes, por acuerdo comercial.",
   },
   {
     name: "Pro",
-    cuota: "Mensual",
-    precio: "S/ 300/mes",
     nota: "Para complejos con más canchas que el plan Básico.",
   },
 ];
@@ -128,7 +124,7 @@ const Grass = () => {
               href="#planes"
               className="inline-flex items-center gap-2 rounded-xl bg-a2tech-surface border border-border hover:border-a2tech-teal/50 text-foreground font-semibold text-sm h-11 px-6 transition-all"
             >
-              Ver planes y precios
+              Ver planes
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -175,54 +171,30 @@ const Grass = () => {
       <section id="planes" className="section-padding bg-background">
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-12">
-            <h2 className="section-title">Planes y precios</h2>
+            <h2 className="section-title">Planes</h2>
             <p className="section-subtitle mb-0">
               Reservas por hora, caja por turno, cafetín/tienda y permisos
               por rol están incluidos en ambos planes.
             </p>
           </div>
-          <Reveal className="sm:hidden grid grid-cols-1 gap-4">
+          <Reveal className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {PLANS.map((plan) => (
-              <div key={plan.name} className="rounded-2xl bg-a2tech-surface border border-border p-5">
+              <div key={plan.name} className="rounded-2xl bg-a2tech-surface border border-border p-6">
                 <div className="font-display text-xl text-white mb-2">{plan.name}</div>
-                <div className="font-display text-lg font-bold text-a2tech-teal">{plan.precio}</div>
-                <div className="text-xs text-muted-foreground mt-1">{plan.cuota}</div>
-                <div className="text-xs text-muted-foreground mt-3">{plan.nota}</div>
+                <div className="text-sm text-muted-foreground">{plan.nota}</div>
               </div>
             ))}
           </Reveal>
-
-          <Reveal className="hidden sm:block overflow-x-auto">
-            <table className="w-full border border-border rounded-2xl overflow-hidden text-sm">
-              <thead>
-                <tr className="bg-a2tech-surface">
-                  <th className="p-4 text-left text-muted-foreground font-mono text-xs uppercase tracking-wider"></th>
-                  {PLANS.map((plan) => (
-                    <th key={plan.name} className="p-4 text-left font-display text-xl text-white">
-                      {plan.name}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-t border-border">
-                  <td className="p-4 text-muted-foreground font-mono text-xs uppercase tracking-wider">Cuota</td>
-                  {PLANS.map((plan) => (
-                    <td key={plan.name} className="p-4 text-foreground">{plan.cuota}</td>
-                  ))}
-                </tr>
-                <tr className="border-t border-border bg-a2tech-surface/40">
-                  <td className="p-4 text-muted-foreground font-mono text-xs uppercase tracking-wider">Precio</td>
-                  {PLANS.map((plan) => (
-                    <td key={plan.name} className="p-4">
-                      <div className="font-display text-lg font-bold text-a2tech-teal">{plan.precio}</div>
-                      <div className="text-xs text-muted-foreground mt-1">{plan.nota}</div>
-                    </td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          </Reveal>
+          <div className="text-center mt-8">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-a2tech-teal hover:bg-a2tech-teal/90 text-a2tech-dark font-semibold text-sm h-11 px-6 shadow-[0_0_20px_rgba(47,224,199,0.3)] transition-all"
+            >
+              Consultar por WhatsApp
+            </a>
+          </div>
           <p className="text-center text-xs text-muted-foreground mt-6">
             El alta incluye carga de tus canchas y horarios, configuración de
             usuarios y roles, una capacitación remota y acompañamiento la
