@@ -77,6 +77,7 @@ const homeStaticContent = `
     <li><a href="/qatuy">Qatuy — sistema de ventas y facturación electrónica SUNAT</a></li>
     <li><a href="/wasi">Wasi Sys — software para hoteles y hostales pequeños</a></li>
     <li><a href="/grass">GrassManager — sistema para canchas de fútbol</a></li>
+    <li><a href="https://mikhunawasisys.a2technology.com.pe/login">Mikhuna Wasi SYS — sistema para restaurantes</a></li>
   </ul>
 `;
 writeFileSync("dist/index.html", shell.replace('<div id="root"></div>', `<div id="root">${homeStaticContent}</div>`));
