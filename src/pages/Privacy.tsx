@@ -15,7 +15,9 @@ const Privacy = () => {
 
             <h2>1. Responsable del tratamiento</h2>
             <p>
-              A2 Technology E.I.R.L., RUC [RUC], con domicilio en [DIRECCIÓN], Perú (en adelante,
+              A2 Technology E.I.R.L., RUC 20614497115, con domicilio en Jr. Las Orquídeas Mz. D3 Lt. 4,
+              Urbanización Primavera, Andrés Avelino Cáceres Dorregaray, Huamanga, Ayacucho, Perú (en
+              adelante,
               "A2 Technology" o "nosotros"), es responsable del tratamiento de los datos personales
               descritos en esta política. Puedes contactarnos escribiendo a{" "}
               <a href="mailto:a2technologype@gmail.com">a2technologype@gmail.com</a>.
