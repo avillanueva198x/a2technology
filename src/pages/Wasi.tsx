@@ -89,7 +89,7 @@ const FAQS = [
 
 const Wasi = () => {
   useEffect(() => {
-    document.title = "Wasi Sys | Software para hoteles y hostales pequeños | A2 Technology";
+    document.title = "Wasi Sys | Software para hoteles y hostales pequeños en Perú";
   }, []);
 
   return (

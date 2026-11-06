@@ -1,6 +1,6 @@
 import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
-const origin = "https://a2technology.com.pe";
+const origin = "https://www.a2technology.com.pe";
 
 function softwareApplicationSchema(name, description) {
   return JSON.stringify({
@@ -17,11 +17,11 @@ function softwareApplicationSchema(name, description) {
 const pages = {
   privacidad: {
     title: "Política de privacidad | A2 Technology",
-    description: "Información sobre el tratamiento de datos personales en A2 Technology.",
+    description: "Política de privacidad de A2 Technology: qué datos personales tratamos, con qué finalidad, qué proveedores los procesan y cómo ejercer tus derechos ARCO.",
   },
   terminos: {
     title: "Términos y condiciones | A2 Technology",
-    description: "Términos y condiciones de A2 Technology.",
+    description: "Términos y condiciones de los sistemas SaaS de A2 Technology: disponibilidad del servicio, responsabilidades del cliente y condiciones de la suscripción.",
   },
   qatuy: {
     title: "Qatuy | Sistema de ventas con facturación electrónica SUNAT",

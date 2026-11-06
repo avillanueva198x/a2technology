@@ -21,9 +21,9 @@ const cases: { name: string; area: string; description: string; icon: typeof Gra
 ];
 const solutions = [
   { name: "Qatuy", area: "Gestión comercial", icon: Store, theme: "commerce", description: "Nuestra solución propia para negocios de comercio. Desarrollo aplicado a la gestión comercial.", url: "https://qatuysys.a2technology.com.pe/", page: "/qatuy", status: "En marcha blanca" },
-  { name: "Wasi", area: "Gestión hotelera", icon: Hotel, theme: "hospitality", description: "Tecnología propia para el sector hotelero. Una solución construida alrededor de este tipo de negocio.", url: "https://wasisys.a2technology.com.pe/", page: "/wasi", status: "Demo disponible" },
+  { name: "Wasi Sys", area: "Gestión hotelera", icon: Hotel, theme: "hospitality", description: "Tecnología propia para el sector hotelero. Una solución construida alrededor de este tipo de negocio.", url: "https://wasisys.a2technology.com.pe/", page: "/wasi", status: "Demo disponible" },
   { name: "GrassManager", area: "Reservas deportivas", icon: Goal, theme: "sports", description: "Una solución para la reserva de canchas deportivas. Software que conecta tecnología y actividad comercial.", url: "https://grassmanager.a2technology.com.pe/", page: "/grass", status: "Demo disponible" },
-  { name: "Mikhuna WasiSys", area: "Restaurantes", icon: UtensilsCrossed, theme: "dining", description: "Nuestro sistema para restaurantes. Una línea de software propia, distinta del desarrollo institucional Mikhuna.", url: "https://mikhunawasisys.a2technology.com.pe/login", status: "Consultar disponibilidad" },
+  { name: "Mikhuna Wasi SYS", area: "Restaurantes", icon: UtensilsCrossed, theme: "dining", description: "Nuestro sistema para restaurantes. Una línea de software propia, distinta del desarrollo institucional Mikhuna.", url: "https://mikhunawasisys.a2technology.com.pe/login", status: "Consultar disponibilidad" },
 ];
 
 const CorporateHome = () => <>

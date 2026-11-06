@@ -89,7 +89,7 @@ const FAQS = [
 
 const Grass = () => {
   useEffect(() => {
-    document.title = "GrassManager | Sistema para canchas de fútbol | A2 Technology";
+    document.title = "GrassManager | Sistema para canchas de fútbol y reservas deportivas";
   }, []);
 
   return (

@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/accordion";
 
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hola A2 Technology, quiero una demo de Qatuy Sys para mi negocio."
+  "Hola A2 Technology, quiero una demo de Qatuy para mi negocio."
 );
 const WHATSAPP_URL = `https://wa.me/51931871964?text=${WHATSAPP_MESSAGE}`;
 
@@ -119,7 +119,7 @@ const FAQS = [
 
 const Qatuy = () => {
   useEffect(() => {
-    document.title = "Qatuy Sys | Punto de venta, inventario y SUNAT | A2 Technology";
+    document.title = "Qatuy | Sistema de ventas con facturación electrónica SUNAT";
   }, []);
 
   return (
@@ -131,7 +131,7 @@ const Qatuy = () => {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-a2tech-teal/5 rounded-full blur-[140px] pointer-events-none"></div>
         <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
           <Badge variant="secondary" className="bg-a2tech-teal/10 text-a2tech-teal border-a2tech-teal/30 font-mono mb-4">
-            Qatuy Sys
+            Qatuy
           </Badge>
           <h1 className="section-title">
             Vende, controla tu stock y cierra tu caja sin cuaderno ni Excel.
