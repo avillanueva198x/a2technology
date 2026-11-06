@@ -29,14 +29,19 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSubmitting) return;
+    if (!formData.user_name.trim() || !formData.message.trim()) {
+      toast({ title: "Completa tu consulta", description: "Ingresa tu nombre y cuéntanos qué necesitas.", variant: "destructive" });
+      return;
+    }
     setIsSubmitting(true);
     
     // Preparar la plantilla con los datos del formulario
     const templateParams = {
-      from_name: formData.user_name,
-      from_email: formData.user_email,
-      from_phone: formData.user_phone,
-      message: formData.message,
+      from_name: formData.user_name.trim(),
+      from_email: formData.user_email.trim(),
+      from_phone: formData.user_phone.trim(),
+      message: formData.message.trim(),
       to_name: "A2 Technology"
     };
     
@@ -71,9 +76,9 @@ const Contact = () => {
     <section id="contact" className="section-padding bg-a2tech-surface">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="section-title">Contáctanos</h2>
+          <h2 className="section-title">Tu próximo paso empieza con una conversación.</h2>
           <p className="section-subtitle">
-            Estamos listos para ayudarte a impulsar tu negocio con nuestras soluciones tecnológicas
+            Cuéntanos qué necesita tu empresa. Revisemos juntos cómo podemos ayudarte.
           </p>
         </div>
 
@@ -86,7 +91,7 @@ const Contact = () => {
                 </label>
                 <Input
                   id="user_name"
-                  name="user_name"
+                  name="user_name" autoComplete="name" maxLength={120}
                   value={formData.user_name}
                   onChange={handleChange}
                   placeholder="Ingresa tu nombre"
@@ -100,7 +105,7 @@ const Contact = () => {
                 </label>
                 <Input
                   id="user_email"
-                  name="user_email"
+                  name="user_email" autoComplete="email" maxLength={254}
                   type="email"
                   value={formData.user_email}
                   onChange={handleChange}
@@ -115,10 +120,10 @@ const Contact = () => {
                 </label>
                 <Input
                   id="user_phone"
-                  name="user_phone"
+                  name="user_phone" type="tel" autoComplete="tel" maxLength={30}
                   value={formData.user_phone}
                   onChange={handleChange}
-                  placeholder="Tu número de teléfono"
+                  placeholder="Opcional · tu número de teléfono"
                 />
               </div>
               
@@ -128,10 +133,10 @@ const Contact = () => {
                 </label>
                 <Textarea
                   id="message"
-                  name="message"
+                  name="message" maxLength={4000}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="¿Cómo podemos ayudarte?"
+                  placeholder="¿Qué proceso quieres mejorar o qué reto tecnológico tienes?"
                   rows={5}
                   required
                 />
@@ -145,8 +150,8 @@ const Contact = () => {
                 {isSubmitting ? "Enviando..." : "Enviar mensaje"}
               </Button>
               <p className="text-xs text-muted-foreground">
-                Al enviar este formulario aceptás que A2 Technology te contacte para responder tu consulta.
-                Tus datos no se comparten con terceros.
+                Al enviar este formulario autorizas que A2 Technology te contacte para responder tu consulta.
+                Consulta nuestra <a href="/privacidad" className="underline">política de privacidad</a> para conocer el tratamiento de tus datos.
               </p>
             </form>
           </div>

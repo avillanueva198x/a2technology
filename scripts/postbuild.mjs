@@ -1,19 +1,21 @@
-// GitHub Pages has no server-side routing: a direct GET to a client-side
-// route must land on a real file, or it falls through to 404.html.
-// - routes below get their own dist/<route>/index.html (copy of the SPA
-//   shell) so GitHub Pages serves them with HTTP 200 and BrowserRouter
-//   renders the right page on load. Required by Google: the privacy
-//   policy URL must respond 200, not 404.
-// - 404.html is still the SPA shell too, so any other unmatched path
-//   still boots the app (status 404) instead of GitHub's generic page.
-import { copyFileSync, mkdirSync } from "node:fs";
+import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
-const routes = ["privacidad", "terminos", "qatuy"];
-const shell = "dist/index.html";
-
-copyFileSync(shell, "dist/404.html");
-
-for (const route of routes) {
+const origin = "https://a2technology.com.pe";
+const pages = {
+  privacidad: { title: "Política de privacidad | A2 Technology", description: "Información sobre el tratamiento de datos personales en A2 Technology." },
+  terminos: { title: "Términos y condiciones | A2 Technology", description: "Términos y condiciones de A2 Technology." },
+  qatuy: { title: "Qatuy | Sistema de gestión comercial de A2 Technology", description: "Conoce Qatuy, sus funciones de gestión comercial, planes y disponibilidad por configuración." },
+};
+const shell = readFileSync("dist/index.html", "utf8");
+copyFileSync("dist/index.html", "dist/404.html");
+for (const [route, page] of Object.entries(pages)) {
+  const url = `${origin}/${route}`;
+  const html = shell
+    .replace(/<title>.*?<\/title>/, `<title>${page.title}</title>`)
+    .replace(/(<meta (?:name|property)="(?:description|og:description|twitter:description)" content=")[^"]*(")/g, `$1${page.description}$2`)
+    .replace(/(<meta (?:name|property)="(?:og:title|twitter:title)" content=")[^"]*(")/g, `$1${page.title}$2`)
+    .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${url}$2`)
+    .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`);
   mkdirSync(`dist/${route}`, { recursive: true });
-  copyFileSync(shell, `dist/${route}/index.html`);
+  writeFileSync(`dist/${route}/index.html`, html);
 }
