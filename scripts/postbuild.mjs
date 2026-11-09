@@ -65,13 +65,32 @@ for (const [route, page] of Object.entries(pages)) {
   writeFileSync(`dist/${route}/index.html`, html);
 }
 
-// Pre-render the home's main textual content into the empty <div id="root">.
-// Safe because main.tsx uses createRoot().render(), not hydrateRoot(): React
-// replaces these children on mount instead of diffing against them, so there
-// is no hydration mismatch. This gives crawlers and non-JS link previews
-// (WhatsApp, LinkedIn, Bing) real content instead of an empty shell.
+// Keep the no-JS/SEO fallback readable and brand-aligned before React mounts.
+// These inline styles apply only while the home fallback exists. React's
+// createRoot().render() replaces it; product and error shells stay unchanged.
+const homeStartupStyles = `<style id="a2-home-startup">
+html:has(#a2-startup),body:has(#a2-startup){margin:0;background:#fff;color:#183044}
+#a2-startup{min-height:100vh;background:#fff;color:#183044;font-family:Inter,Arial,sans-serif}
+#a2-startup .a2-wrap{width:min(1200px,calc(100% - 64px));margin-inline:auto}
+#a2-startup .a2-header{background:#fff;color:#183044}
+#a2-startup .a2-nav{min-height:90px;display:flex;align-items:center}
+#a2-startup .a2-brand{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:700;text-decoration:none;color:inherit}
+#a2-startup .a2-brand img{border-radius:13px}
+#a2-startup .a2-brand small{display:block;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#5e7183}
+#a2-startup .a2-hero{background:#0C2144;color:#fff;padding:85px 0 65px}
+#a2-startup h1{font-family:'Space Grotesk',Inter,Arial,sans-serif;font-size:clamp(38px,4.4vw,65px);line-height:1.08;letter-spacing:-2px;margin:0 0 25px;font-weight:600}
+#a2-startup h1 em{font-style:normal;color:#5EE0C5}
+#a2-startup p{max-width:620px;font-size:18px;line-height:1.75;margin:0 0 24px;color:#e0e9f6}
+#a2-startup ul{padding:0;list-style:none;line-height:1.8}
+#a2-startup li{margin:8px 0}
+#a2-startup li a{color:#5EE0C5;text-decoration:underline}
+@media(max-width:600px){#a2-startup .a2-wrap{width:calc(100% - 40px)}#a2-startup .a2-hero{padding:50px 0}}
+</style>`;
 const homeStaticContent = `
-  <h1>A2 Technology: software de gestión para negocios en Perú</h1>
+<div id="a2-startup" class="corporate-site">
+  <header class="a2-header"><div class="a2-wrap a2-nav"><a class="a2-brand" href="/"><img src="/logo.png" alt="" width="44" height="44" /><span>A2 Technology<small>Tu aliado en tecnología</small></span></a></div></header>
+  <main class="a2-hero"><div class="a2-wrap">
+  <h1>Tu negocio avanza.<br /><em>Tu tecnología<br /> también debería.</em></h1>
   <p>Creamos y operamos sistemas de ventas, facturación electrónica SUNAT, gestión hotelera y reservas deportivas para pymes peruanas. Consultoría y desarrollo de software a medida.</p>
   <ul>
     <li><a href="/qatuy">Qatuy — sistema de ventas y facturación electrónica SUNAT</a></li>
@@ -79,5 +98,9 @@ const homeStaticContent = `
     <li><a href="/grass">GrassManager — sistema para canchas de fútbol</a></li>
     <li><a href="https://mikhunawasisys.a2technology.com.pe/login">Mikhuna Wasi SYS — sistema para restaurantes</a></li>
   </ul>
+  </div></main>
+</div>
 `;
-writeFileSync("dist/index.html", shell.replace('<div id="root"></div>', `<div id="root">${homeStaticContent}</div>`));
+writeFileSync("dist/index.html", shell
+  .replace("</head>", `${homeStartupStyles}</head>`)
+  .replace('<div id="root"></div>', `<div id="root">${homeStaticContent}</div>`));
