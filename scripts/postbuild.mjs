@@ -97,6 +97,7 @@ const homeStaticContent = `
     <li><a href="/wasi">Wasi Sys — software para hoteles y hostales pequeños</a></li>
     <li><a href="/grass">GrassManager — sistema para canchas de fútbol</a></li>
     <li><a href="https://mikhunawasisys.a2technology.com.pe/login">Mikhuna Wasi SYS — sistema para restaurantes</a></li>
+    <li><a href="https://haytaysys.a2technology.com.pe/">Haytay Sys — gestión de campeonatos deportivos</a></li>
   </ul>
   </div></main>
 </div>
